@@ -8,23 +8,22 @@ function Signin() {
     email: "",
     password: "",
     error: "",
+    message: "",
     success: false,
     didRedirect: false,
   });
 
-  const { email, password, error, success, didRedirect } = values;
+  const { email, password, error, success, message, didRedirect } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  console.log(values);
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
     signin({ email, password })
       .then((data) => {
-        console.log(data);
         localStorage.setItem("token", data.token);
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
@@ -36,6 +35,7 @@ function Signin() {
             error: "",
             success: true,
             didRedirect: true,
+            message: data.message,
           });
         }
       })
@@ -47,8 +47,6 @@ function Signin() {
   const performRedirect = () => {
     if (didRedirect) {
       return <Redirect to="/profile" />;
-    } else {
-      return <Redirect to="/" />;
     }
   };
 
@@ -76,6 +74,7 @@ function Signin() {
             <button onClick={onsubmit}>Submit</button>
           </div>
         </div>
+        {error ? <p>{error}</p> : <p>{message}</p>}
       </div>
       {performRedirect()}
     </>

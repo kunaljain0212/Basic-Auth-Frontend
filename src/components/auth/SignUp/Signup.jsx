@@ -9,9 +9,10 @@ function Signup() {
     password: "",
     error: "",
     success: false,
+    message: "",
   });
 
-  const { name, email, password, error, success } = values;
+  const { name, email, password, error, success, message } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -35,6 +36,7 @@ function Signup() {
             password: "",
             error: "",
             success: true,
+            message: data.message,
           });
         }
       })
@@ -76,6 +78,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      {error ? <p>{error}</p> : <p>{message}</p>}
     </>
   );
 }

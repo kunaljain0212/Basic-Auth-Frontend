@@ -2,7 +2,7 @@ const { API } = require("../../../backend");
 
 export const signup = (user) => {
   console.log(API);
-  return fetch(`${API}auth/register`, {
+  return fetch(`${API}/auth/register`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -18,7 +18,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  return fetch(`${API}auth/login`, {
+  return fetch(`${API}/auth/login`, {
     method: "POST",
     headers: {
       Accept: "application/json",

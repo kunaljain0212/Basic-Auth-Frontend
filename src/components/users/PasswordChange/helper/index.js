@@ -3,7 +3,7 @@ const { API } = require("../../../../backend");
 export const changePassword = (passwords) => {
   console.log(API);
   const token = localStorage.getItem("token");
-  return fetch(`${API}user/profile/password`, {
+  return fetch(`${API}/user/profile/password`, {
     method: "POST",
     headers: {
       Accept: "application/json",

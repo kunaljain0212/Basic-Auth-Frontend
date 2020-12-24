@@ -8,9 +8,10 @@ function Password() {
     newPassword: "",
     error: "",
     success: false,
+    message: "",
   });
 
-  const { oldPassword, newPassword, error, success } = values;
+  const { oldPassword, newPassword, error, success, message } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -32,6 +33,7 @@ function Password() {
             oldPassword: "",
             error: "",
             success: true,
+            message: data.message,
           });
         }
       })
@@ -65,6 +67,7 @@ function Password() {
           </div>
         </div>
       </div>
+      {error ? <p>{error}</p> : <p>{message}</p>}
     </>
   );
 }

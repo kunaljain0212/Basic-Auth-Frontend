@@ -3,7 +3,7 @@ const { API } = require("../../../../backend");
 export const getProfile = () => {
   console.log(API);
   const token = localStorage.getItem("token");
-  return fetch(`${API}user/profile`, {
+  return fetch(`${API}/user/profile`, {
     method: "GET",
     headers: {
       Accept: "application/json",
