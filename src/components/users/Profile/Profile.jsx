@@ -13,9 +13,8 @@ function Profile() {
         setValues(profile.user);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [values]);
 
-  console.log(values);
   return (
     <>
       {values !== undefined ? (

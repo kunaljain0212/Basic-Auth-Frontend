@@ -23,7 +23,6 @@ function Password() {
     setValues({ ...values, error: false });
     changePassword({ newPassword, oldPassword })
       .then((data) => {
-        console.log(data);
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
         } else {
@@ -65,9 +64,9 @@ function Password() {
           <div className="form-group">
             <button onClick={onsubmit}>Change Password</button>
           </div>
+          {error ? <p>{error}</p> : <p style={{color: 'green'}}>{message}</p>}
         </div>
       </div>
-      {error ? <p>{error}</p> : <p>{message}</p>}
     </>
   );
 }

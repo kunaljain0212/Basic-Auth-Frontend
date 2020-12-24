@@ -24,10 +24,8 @@ function Signup() {
     setValues({ ...values, error: false });
     signup({ name, email, password })
       .then((data) => {
-        console.log(data);
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
-          // console.log("databse se error while saving" + data.error)
         } else {
           setValues({
             ...values,
@@ -76,9 +74,9 @@ function Signup() {
           <div className="form-group">
             <button onClick={onsubmit}>Submit</button>
           </div>
+          {error ? <p>{error}</p> : <p style={{color: 'green'}}>{message}</p>}
         </div>
       </div>
-      {error ? <p>{error}</p> : <p>{message}</p>}
     </>
   );
 }
