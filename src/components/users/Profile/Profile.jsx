@@ -6,14 +6,14 @@ import "./Profile.styles.css";
 function Profile() {
   const [values, setValues] = useState({});
 
+  //Get profile function call to receive user details
   useEffect(() => {
     getProfile()
       .then((profile) => {
-        console.log(profile);
         setValues(profile.user);
       })
       .catch((err) => console.log(err));
-  }, [values]);
+  }, []);
 
   return (
     <>

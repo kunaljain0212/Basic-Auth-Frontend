@@ -1,8 +1,8 @@
 const { API } = require("../../../../backend");
 
+//Change password API call
 export const changePassword = (passwords) => {
-  console.log(API);
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("Token");
   return fetch(`${API}/user/profile/password`, {
     method: "POST",
     headers: {
@@ -13,7 +13,6 @@ export const changePassword = (passwords) => {
     body: JSON.stringify(passwords),
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .catch((err) => console.log(err));

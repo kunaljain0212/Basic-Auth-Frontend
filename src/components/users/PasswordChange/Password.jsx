@@ -13,11 +13,12 @@ function Password() {
 
   const { oldPassword, newPassword, error, success, message } = values;
 
+  //Input change handling event
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  console.log(values);
+  //Submit 
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
@@ -47,7 +48,7 @@ function Password() {
         <div className="formbox">
           <div className="form-group">
             <input
-              type="email"
+              type="password"
               placeholder="Old Password"
               onChange={handleChange("oldPassword")}
               value={oldPassword}

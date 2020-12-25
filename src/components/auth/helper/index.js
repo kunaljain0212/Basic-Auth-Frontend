@@ -1,7 +1,7 @@
 const { API } = require("../../../backend");
 
+//Signup API call
 export const signup = (user) => {
-  console.log(API);
   return fetch(`${API}/auth/register`, {
     method: "POST",
     headers: {
@@ -11,12 +11,12 @@ export const signup = (user) => {
     body: JSON.stringify(user),
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .catch((err) => console.log(err));
 };
 
+//Signin API call
 export const signin = (user) => {
   return fetch(`${API}/auth/login`, {
     method: "POST",

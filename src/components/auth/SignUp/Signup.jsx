@@ -14,11 +14,12 @@ function Signup() {
 
   const { name, email, password, error, success, message } = values;
 
+  //Input change handling event
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  console.log(values);
+  //Submit 
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });

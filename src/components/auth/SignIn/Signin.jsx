@@ -15,16 +15,18 @@ function Signin() {
 
   const { email, password, error, success, message, didRedirect } = values;
 
+  //Input change handling event
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
+  //Submit 
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
     signin({ email, password })
       .then((data) => {
-        localStorage.setItem("token", data.token);
+        sessionStorage.setItem("Token", data.token);
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
         } else {
@@ -44,6 +46,7 @@ function Signin() {
       });
   };
 
+  //Redirect user to his profile
   const performRedirect = () => {
     if (didRedirect) {
       return <Redirect to="/profile" />;
@@ -73,7 +76,7 @@ function Signin() {
           <div className="form-group">
             <button onClick={onsubmit}>Submit</button>
           </div>
-          {error ? <p>{error}</p> : <p style={{color: 'green'}}>{message}</p>}
+          {error ? <p>{error}</p> : <p style={{ color: "green" }}>{message}</p>}
         </div>
       </div>
       {performRedirect()}

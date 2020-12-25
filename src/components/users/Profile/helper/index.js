@@ -1,8 +1,8 @@
 const { API } = require("../../../../backend");
 
+//Get profile API call
 export const getProfile = () => {
-  console.log(API);
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("Token");
   return fetch(`${API}/user/profile`, {
     method: "GET",
     headers: {
@@ -12,7 +12,6 @@ export const getProfile = () => {
     },
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .catch((err) => console.log(err));
