@@ -13,6 +13,7 @@ export const changePassword = (passwords) => {
     body: JSON.stringify(passwords),
   })
     .then((response) => {
+      sessionStorage.removeItem("Token");
       return response.json();
     })
     .catch((err) => console.log(err));
