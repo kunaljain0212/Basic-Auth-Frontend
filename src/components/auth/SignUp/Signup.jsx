@@ -19,7 +19,7 @@ function Signup() {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  //Submit 
+  //Submit
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
@@ -75,7 +75,11 @@ function Signup() {
           <div className="form-group">
             <button onClick={onsubmit}>Submit</button>
           </div>
-          {error ? <p>{error}</p> : <p style={{color: 'green'}}>{message}</p>}
+          {error && !success ? (
+            <p>{error}</p>
+          ) : (
+            <p style={{ color: "green" }}>{message}</p>
+          )}
         </div>
       </div>
     </>

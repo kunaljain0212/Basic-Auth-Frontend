@@ -18,7 +18,7 @@ function Password() {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  //Submit 
+  //Submit
   const onsubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
@@ -65,7 +65,11 @@ function Password() {
           <div className="form-group">
             <button onClick={onsubmit}>Change Password</button>
           </div>
-          {error ? <p>{error}</p> : <p style={{color: 'green'}}>{message}</p>}
+          {error && !success ? (
+            <p>{error}</p>
+          ) : (
+            <p style={{ color: "green" }}>{message}</p>
+          )}
         </div>
       </div>
     </>
